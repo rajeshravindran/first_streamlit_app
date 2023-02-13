@@ -1,3 +1,6 @@
 # requirements.txt
+pandas
+requests
+matplotlib
 pyarrow==10.0.1
 snowflake-connector-python
