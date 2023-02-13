@@ -1,2 +1,5 @@
 # requirements.txt
+pandas
+requests
+pyarrow=10.0.1
 snowflake-connector-python
