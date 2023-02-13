@@ -11,7 +11,7 @@ def get_fruity_vice_data(this_fruit_choice):
 
 def get_fruit_list():
     cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-    with cnx.cursor as my_cur:
+    with cnx.cursor() as my_cur:
         my_cur.execute("SELECT * FROM FRUIT_LOAD_LIST")
         return my_cur.fetchall()
     
