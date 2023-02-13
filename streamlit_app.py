@@ -13,13 +13,16 @@ def get_fruit_list():
     cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
     with cnx.cursor() as my_cur:
         my_cur.execute("SELECT * FROM FRUIT_LOAD_LIST")
-        return my_cur.fetchall()
+        data =  my_cur.fetchall()
+    cnx.close()
+    return data
  
 def insert_fruit_row(fruit_name):
     cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
     with cnx.cursor() as my_cur:
         my_cur.execute("insert into fruit_load_list values ('" + fruit_name + "');")
-        return 'Thanks for adding ' + fruit_name
+    cnx.close()
+    return 'Thanks for adding ' + fruit_name
         
     
    
